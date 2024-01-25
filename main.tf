@@ -9,18 +9,7 @@ resource "google_compute_subnetwork" "subnet_network" {
   name          = "new-subnetwork"
   ip_cidr_range = "10.2.0.0/23"
   region        = var.gcp_regions[0]
-  network       = google_compute_network.vpc_network.self_link
-}
-
-# craeting the virtual machine 
-
-# Creating the VM
-resource "google_compute_instance" "vm" {
-  name         = var.machine_name
-  machine_type = var.machine_type
-  zone        = var.gcp_az
-
-
+  network       = g
   boot_disk {                 # os(operating system)
     initialize_params {
       image = "ubuntu-os-cloud/ubuntu-2004-lts"
